@@ -1,0 +1,2 @@
+# Naukalongsavemistral
+longmemorychatgpt
