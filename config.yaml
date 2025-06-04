@@ -1,0 +1,68 @@
+api:
+  base_url: "https://dolphin-anty-api.com"
+  token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTdhMjU5MjkzNjRhYjY5NzNiYjIwMDAyMTY1ODY0N2I0ZDc4YzI4ZjQyMmZjMzgwZTI5MTNjZTk2ZTEyZjY1MDMyYTlkZjlkNDcxZTA1MWYiLCJpYXQiOjE3NDQ3NjQ1ODIuNjMyMDMxLCJuYmYiOjE3NDQ3NjQ1ODIuNjMyMDMzLCJleHAiOjE3NzYzMDA1ODIuNjE5NjQ3LCJzdWIiOiI0MTY2NjIyIiwic2NvcGVzIjpbXSwidGVhbV9pZCI6NDA3Nzk2MiwidGVhbV9wbGFuIjoiYmFzZSIsInRlYW1fcGxhbl9leHBpcmF0aW9uIjoxNzQ3MjUxMzk2fQ.f8lQSJew4uJlabWsB5U4aTDH4sfdIRhXWZiGj5sgYaBYitLjgZF9ttt31yz5-BOaHWORcnU05cUPZzhGSevzqvPrOjdJjx2cSKSE5kWKakN30WBM-wyzwCqmsGX-2zRPKN5tKZp96KDFaDbOZfL-2vydeD02D9VAbSlusSeUTqEB1PMaN8MVKGa8LtsbNurz9hVkypb-He67bdmOknL9zsHff3yWtEmW9XD5D39r7DG93vPahpnh23oY5mR2T8rI64GjVqq3Xp2HzlzCXOgxigmZOPNfOLGId2OEB0PKYDKJWeWE9p-4RDCHGGmOgHQ-1mBYw2GJMq_X0x-CzmJUqx8UHq-J-vt0wmf23-SXkC6KPbsyEcEUcB5gx7wRc0KpoiUt-pdcVix9PVPnMWjDHRd73M0GUZbG2zR1B_dtmaFu2ygqD1WBFq9OwbxoRtJ4LQ1-ljyWLLICRjYlxgse4qZ5Q0QD9jC8kWChDB9-i6dYY-r9veLTNB8q2tMRnki8uEkAXK-LOZ38BKTxun5ojv4SMReBfgcTnGwlSZtIXLR0_jnhE93_oQaEI6q5L_jVT8DRVqBlkfIQxN_vPfO0jSTFlxapxFydKD7pXbHel2zIIKtTmdcH_vGSN_y57JknokqGIEDZtN2Ktp4gh00vVtzi71fChfDW5u1QuaB5_l0"
+  profile_ids: [604449274]
+
+module:
+  name: "FacebookAutomationModule"
+  version: "1.0.0"
+
+profiles:
+  launch_delay:
+    min_seconds: 15
+    max_seconds: 33
+  news_portal:
+    session_duration:
+      min_seconds: 180    # 3 minuty
+      max_seconds: 420    # 7 minut
+    actions:
+      scroll_interval:
+        min_seconds: 2
+        max_seconds: 5
+      click_article_probability: 0.5
+
+facebook:
+  pre_login: true
+  pre_onet_seconds: 60
+  credentials:
+    email: "twoj_email@przyklad.com"
+    password: "twoje_haslo"
+  actions:
+    browse_homepage:
+      duration:
+        min_seconds: 10
+        max_seconds: 20
+      likes:
+        min: 1
+        max: 3
+      scroll_interval:
+        min_seconds: 5
+        max_seconds: 10
+    browse_profiles_and_add_friends:
+      duration:
+        min_seconds: 180    # 3 minuty
+        max_seconds: 480    # 8 minut
+      add_friends:
+        min: 1
+        max: 3
+    share_post:
+      interval_hours:
+        min: 24
+        max: 48
+    click_interested:
+      interval_hours:
+        min: 48
+        max: 48
+  anti_detection:
+    enable: true
+    extra_random_delays:
+      min_seconds: 3
+      max_seconds: 10
+    simulate_mouse_movements: true
+
+logging:
+  level: "DEBUG"
+  output: "automation.log"
+
+scheduling:
+  profiles_run_interval_minutes: 60
